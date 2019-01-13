@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_articles"
+        android:icon="@drawable/ic_articles_black_24dp"
+        android:title="@string/title_articles" />
+
+    <item
+        android:id="@+id/navigation_charities"
+        android:icon="@drawable/ic_charities_black_24dp"
+        android:title="@string/title_charities" />
+
+    <item
+        android:id="@+id/navigation_organizations"
+        android:icon="@drawable/ic_organizations_black_24dp"
+        android:title="@string/title_organizations" />
+
+</menu>
