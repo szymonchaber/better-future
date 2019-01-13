@@ -11,8 +11,8 @@ android {
         targetSdkVersion 28
         versionCode project.generateVersionCode()
         versionName project.generateVersionName()
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -25,10 +25,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation([project(":core"),
-                    project(":articlelist")])
+    implementation project(":core")
 
     kapt 'com.google.dagger:dagger-compiler:2.20'
+    kapt "android.arch.persistence.room:compiler:1.1.1"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
