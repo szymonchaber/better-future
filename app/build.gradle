@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -24,6 +25,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation([project(":core"),
                     project(":main")])
+
+    kapt 'com.google.dagger:dagger-compiler:2.20'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
