@@ -9,8 +9,9 @@ object CoreComponentHolder {
     @JvmStatic
     fun init(application: Application) {
         coreComponent = DaggerCoreComponent.builder()
-            .applicationContext(application)
-            .build()
+                .applicationContext(application)
+                .ioModule(IOModule)
+                .build()
     }
 
     fun get() = coreComponent

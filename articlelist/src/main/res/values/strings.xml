@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">articlelist</string>
     <string name="articles">Articles</string>
+    <string name="toast_not_yet_implemented">Feature not yet implemented</string>
 </resources>

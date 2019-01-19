@@ -4,6 +4,10 @@ import android.content.Context
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
+import guide.betterfuture.core.data.executor.JobExecutor
+import guide.betterfuture.core.domain.executor.PostExecutionThread
+import guide.betterfuture.core.domain.executor.ThreadExecutor
+import guide.betterfuture.core.presentation.UIThread
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,5 +39,15 @@ object IOModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
+    }
+
+    @Provides
+    fun provideThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor {
+        return jobExecutor
+    }
+
+    @Provides
+    internal fun providePostExecutionThread(uiThread: UIThread): PostExecutionThread {
+        return uiThread
     }
 }
