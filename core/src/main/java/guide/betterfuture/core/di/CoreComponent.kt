@@ -5,6 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import guide.betterfuture.core.domain.executor.PostExecutionThread
 import guide.betterfuture.core.domain.executor.ThreadExecutor
+import retrofit2.Retrofit
 
 @Component(modules = [IOModule::class])
 interface CoreComponent {
@@ -20,4 +21,5 @@ interface CoreComponent {
 
     fun getThreadExecutor(): ThreadExecutor
     fun getPostExecutionThread(): PostExecutionThread
+    fun getRetrofit(): Retrofit
 }

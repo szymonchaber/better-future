@@ -4,19 +4,26 @@ import dagger.Module
 import dagger.Provides
 import guide.betterfuture.articlelist.GetArticlesUseCase
 import guide.betterfuture.articlelist.data.entity.mapper.ArticleEntityDataMapper
+import guide.betterfuture.articlelist.data.net.ArticleService
 import guide.betterfuture.articlelist.data.repository.ArticleDataRepository
 import guide.betterfuture.articlelist.data.repository.datasource.ArticleListDataStoreFactory
 import guide.betterfuture.articlelist.presentation.mapper.ArticleModelDataMapper
 import guide.betterfuture.articlelist.presentation.presenter.ArticleListPresenter
 import guide.betterfuture.core.domain.executor.PostExecutionThread
 import guide.betterfuture.core.domain.executor.ThreadExecutor
+import retrofit2.Retrofit
 
 @Module
 object ArticleListModule {
 
     @Provides
-    fun provideArticleListDataStoreFactory(): ArticleListDataStoreFactory {
-        return ArticleListDataStoreFactory()
+    fun provideArticleService(retrofit: Retrofit): ArticleService {
+        return retrofit.create(ArticleService::class.java)
+    }
+
+    @Provides
+    fun provideArticleListDataStoreFactory(articleService: ArticleService): ArticleListDataStoreFactory {
+        return ArticleListDataStoreFactory(articleService)
     }
 
     @Provides

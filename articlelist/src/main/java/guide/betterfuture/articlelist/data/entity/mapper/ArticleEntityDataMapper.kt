@@ -6,6 +6,8 @@ import guide.betterfuture.articlelist.domain.Article
 class ArticleEntityDataMapper {
 
     fun map(networkArticle: NetworkArticle): Article {
-        return Article(networkArticle.title)
+        return with(networkArticle) {
+            Article(id, title, body, image, author, createdAt)
+        }
     }
 }
