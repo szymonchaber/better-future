@@ -7,7 +7,7 @@ import javax.inject.Inject
 class ArticleModelDataMapper @Inject constructor() {
 
     fun transform(article: Article): ArticleModel {
-        return ArticleModel(article.title)
+        return with(article) { ArticleModel(id, title, body, image, author, createdAt) }
     }
 
     fun transform(articlesCollection: Collection<Article>): Collection<ArticleModel> {

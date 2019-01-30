@@ -1,3 +1,5 @@
 <resources>
+    <dimen name="material_design_margin_small">4dp</dimen>
+    <dimen name="material_design_margin">8dp</dimen>
     <dimen name="material_design_margin_double">16dp</dimen>
 </resources>
